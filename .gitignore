@@ -137,3 +137,21 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Ficheiros temporários do sistema Linux
+.DS_Store
+.directory
+.Trash-*
+*~
+*.swp
+*.log
+
+# Pastas de configuração do editor (opcional)
+.sublimetext/
+*.sublime-project
+*.sublime-workspace
+
+# Se estiver a usar Node.js no futuro
+node_modules/
+dist/
+.env
