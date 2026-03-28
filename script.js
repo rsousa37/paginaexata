@@ -1,3 +1,5 @@
+// Esta linha garante que a função rode assim que a página carregar
+document.addEventListener('DOMContentLoaded', mostrarCuriosidade);
 const curiosidades = [
     "O número 0 foi inventado na Índia por volta do século V.",
     "O Teorema de Pitágoras era conhecido pelos babilônios 1000 anos antes de Pitágoras.",
