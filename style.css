@@ -1,0 +1,77 @@
+:root {
+    --primary-color: #2c3e50;
+    --accent-color: #3498db;
+    --text-color: #333;
+    --bg-color: #f4f7f6;
+    /* Usando a cor do logotipo para o título */
+    --logo-blue: #0056b3; 
+    }
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    }
+header {
+    background: white; /* Header branco para destacar o logo */
+    color: var(--text-color); /* Texto escuro */
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border-bottom: 3px solid var(--logo-blue); /* Linha sutil da cor do logo */
+    }
+.header-content {
+    display: flex; /* Alinhamento horizontal */
+    align-items: center; /* Centraliza verticalmente logo e texto */
+    justify-content: flex-start; /* Alinha tudo à esquerda */
+    max-width: 800px; /* Mantém a mesma largura do main */
+    margin: 0 auto; /* Centraliza o bloco do header */
+    }
+.logo-container {
+    margin-right: 20px; /* Espaço entre o logo e o título */
+    }
+.site-logo {
+    max-width: 80px; /* Tamanho proporcional do logo */
+    height: auto;
+    display: block;
+    }
+.title-container h1 { 
+    margin: 0; 
+    color: var(--logo-blue); /* Cor azul do logo no título */
+    font-size: 2.5rem;
+    }
+.title-container p { 
+    margin: 0; 
+    color: #7f8c8d; /* Subtítulo cinza sutil */
+    font-size: 1.1rem;
+    }
+main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    }
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+h1 { margin-top: 0; }
+.btn {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+    }
+.btn:hover {
+    background: #2980b9;
+    }
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+    }
