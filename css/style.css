@@ -90,7 +90,7 @@ footer {
 }
 
 .menu-principal a {
-    color: white;
+    color: var(--logo-blue);
     text-decoration: none;
     font-weight: bold;
     padding: 5px 15px;
