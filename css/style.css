@@ -75,3 +75,58 @@ footer {
     font-size: 0.9rem;
     color: #7f8c8d;
     }
+/* Estilo do Menu de Navegação */
+.menu-principal {
+    margin-top: 1.5rem;
+}
+
+.menu-principal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.menu-principal a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.3s;
+}
+
+.menu-principal a:hover {
+    background: var(--accent-color);
+}
+
+/* Efeito de rolagem suave ao clicar nos links */
+html {
+    scroll-behavior: smooth;
+}
+/* Estilo da Seção de Contato */
+.contato-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 1rem;
+}
+.link-contato {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: 15px;
+    background: #f0f4f8;
+    border-radius: 8px;
+    border-left: 5px solid var(--accent-color);
+    transition: background 0.3s, transform 0.2s;
+}
+.link-contato:hover {
+    background: #e1e8ef;
+    transform: translateX(5px);
+}
+.link-contato strong {
+    color: var(--accent-color);
+}    
