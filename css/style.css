@@ -129,4 +129,10 @@ html {
 }
 .link-contato strong {
     color: var(--accent-color);
+}
+/* Isso vai criar uma borda vermelha ao redor do menu para você ver onde ele está parado na tela */
+.menu-principal {
+    border: 2px solid red !important;
+    min-height: 20px;
+    display: block !important;
 }    
