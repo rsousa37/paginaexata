@@ -6,7 +6,8 @@
     <title>Página Exata | Universo da Matemática</title>
     <link rel="stylesheet" href="css/style.css">
     <script defer>alert("Obrigado pela visita! O portal Página Exata está em fase de desenvolvimento. Estamos trabalhando para trazer o melhor conteúdo de exatas para você. Fique atento às novidades!")</script>
-    <script src="js/script.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/app.js"></script>
 </head>
 <body>
     <header>
@@ -26,7 +27,7 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="app">
         <section id="inicio" class="card">
             <h2>Sejam bem-vindos,</h2>
             <p>Este é o ponto de partida para recursos educacionais interativos. Aqui, as exatas deixam de ser abstratas para se tornarem visuais e acessíveis.</p>
@@ -34,9 +35,11 @@
             <a href="https://projetos.paginaexata.com.br" class="btn">Conhecer Projetos</a>
             <hr>
             <h3>Curiosidade do Dia</h3>
-            <p id="texto-curiosidade"></p>
-            <p>Clique no botão abaixo para ver outra curiosidade!</p>
-            <button class="btn" onclick="mostrarCuriosidade()">Nova Curiosidade</button>
+            <section class="card">
+                <h2>{{ tituloGaleria }}</h2>
+                <p id="texto-curiosidade" class="efeito-aparecer">{{ curiosidadeAtual }}</p>
+                <button class="btn" @click="novaCuriosidade">Nova Curiosidade</button>
+            </section>
         </section>
         <section id="contato" class="card" style="margin-top: 2rem;">
             <h2>Entre em Contato</h2>
