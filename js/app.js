@@ -3,12 +3,11 @@ createApp({
   data() {
     return {
       // tituloGaleria: "Exercícios de Geometria",
-      curiosidadeAtual: "Clique no botão para uma curiosidade matemática!",
+      curiosidadeAtual: "<strong>Clique no botão para uma curiosidade matemática!</strong>",
       curiosidades: [
-        "O número 0 foi inventado na Índia.",
-        "Um 'googol' é 1 seguido de 100 zeros.",
-        "A soma dos ângulos de um triângulo é 180°.",
-        "O Pi (π) tem infinitas casas decimais."
+        "<strong>O número 0 foi inventado na Índia.</strong",
+        "<strong>A soma dos ângulos de um triângulo é 180°.</strong>",
+        "<strong>O número Pi (π = 3,14159265358979323846…) tem infinitas casas decimais.</strong>"
       ]
     }
   },
