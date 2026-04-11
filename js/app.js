@@ -2,7 +2,7 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
-      tituloGaleria: "Exercícios de Geometria",
+      // tituloGaleria: "Exercícios de Geometria",
       curiosidadeAtual: "Clique no botão para uma curiosidade matemática!",
       curiosidades: [
         "O número 0 foi inventado na Índia.",
