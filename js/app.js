@@ -9,8 +9,8 @@ createApp({
       curiosidades: [
         "O algarismo do número 0 foi inventado na Índia.",
         "A soma dos ângulos internos de um triângulo é igual 180°.",
-        "O número Pi (π = 3,14159265358979323846…) tem infinitas casas decimais mas não é uma dízima periódica."
-        "O matemática Euclides pode ter vivido em um período de até um século antes do aceito pela maioria dos estudiosos."
+        "O número Pi (π = 3,14159265358979323846…) tem infinitas casas decimais mas não é uma dízima periódica.",
+        "O matemática Euclides pode ter vivido em um período de até um século antes do aceito pela maioria dos estudiosos.",
       ]
     }
   },
