@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+
 createApp({
   data() {
     return {
@@ -23,7 +24,8 @@ createApp({
     novaCuriosidade() {
       const indice = Math.floor(Math.random() * this.curiosidades.length);
       this.curiosidadeAtual = this.curiosidades[indice];
-      // Isso força o MathJax a procurar novas fórmulas após o Vue atualizar a tela
+      
+      // Espera o Vue atualizar o HTML para o MathJax formatar as fórmulas
       this.$nextTick(() => {
         if (window.MathJax && window.MathJax.typeset) {
           window.MathJax.typeset();
@@ -32,9 +34,10 @@ createApp({
     }
   },
   computed: {
-    // Cálculo automático da área
     resultado() {
+      // Garante que o cálculo só ocorra com números válidos
       if (this.base <= 0 || this.altura <= 0) return null;
+      
       if (this.forma === 'triangulo') {
         return (this.base * this.altura) / 2;
       } else {
