@@ -3,7 +3,7 @@ createApp({
   data() {
     return {
       // tituloGaleria: "Exercícios de Geometria",
-      curiosidadeAtual: "Clique no botão para uma curiosidade matemática!",
+      //curiosidadeAtual: "Clique no botão para uma curiosidade matemática!",
       curiosidades: [
         "O número 0 foi inventado na Índia.",
         "A soma dos ângulos de um triângulo é 180°.",
