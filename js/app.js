@@ -24,8 +24,14 @@ createApp({
     novaCuriosidade() {
       const indice = Math.floor(Math.random() * this.curiosidades.length);
       this.curiosidadeAtual = this.curiosidades[indice];
+      // Isso força o MathJax a procurar novas fórmulas após o Vue atualizar a tela
+      this.$nextTick(() => {
+        if (window.MathJax && window.MathJax.typeset) {
+          window.MathJax.typeset();
+        }
+      });
     }
-  },
+  }
   computed: {
     // Cálculo automático da área
     resultado() {
