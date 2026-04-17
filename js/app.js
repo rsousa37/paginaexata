@@ -1,4 +1,5 @@
 const { createApp } = Vue;
+
 createApp({
   data() {
     return {
@@ -26,6 +27,7 @@ createApp({
     }
   },
   computed: {
+    // Cálculo automático da área
     resultado() {
       if (this.base <= 0 || this.altura <= 0) return null;
       if (this.forma === 'triangulo') {
