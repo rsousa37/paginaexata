@@ -1,5 +1,4 @@
 const { createApp } = Vue;
-
 createApp({
   data() {
     return {
@@ -31,7 +30,7 @@ createApp({
         }
       });
     }
-  }
+  },
   computed: {
     // Cálculo automático da área
     resultado() {
