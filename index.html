@@ -84,8 +84,10 @@
         </div>
         <div v-if="resultado !== null" class="efeito-aparecer" style="margin-top: 1.5rem; font-size: 1.2rem;">
             <p>A área do <strong>{{ forma }}</strong> é: <strong>{{ resultado }} u²</strong></p>
-            <small v-if="forma === 'triangulo'">Fórmula: $$A = \frac{b \cdot h}{2}$$</small>
-            <small v-else><p>Fórmula: $$A = b \cdot h$$</p></small>
+            <div class="formula-container">
+                <small v-if="forma === 'triangulo'">Fórmula: $$A = \frac{b \cdot h}{2}$$</small>
+                <small v-else>Fórmula: $$A = b \cdot h$$</small>
+            </div>
         </div>
         </section>
     </main>

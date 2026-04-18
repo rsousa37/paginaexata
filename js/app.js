@@ -1,5 +1,4 @@
 const { createApp } = Vue;
-
 createApp({
   data() {
     return {
@@ -11,7 +10,6 @@ createApp({
         "O número Pi (π = 3,14159265358979323846…) tem infinitas casas decimais mas não é uma dízima periódica.",
         "O matemático Euclides pode ter vivido em um período de até um século antes do aceito pela maioria dos estudiosos.",
       ],
-      // Dados da calculadora
       base: 0,
       altura: 0,
       forma: 'retangulo'
@@ -24,8 +22,10 @@ createApp({
     novaCuriosidade() {
       const indice = Math.floor(Math.random() * this.curiosidades.length);
       this.curiosidadeAtual = this.curiosidades[indice];
-      
-      // Espera o Vue atualizar o HTML para o MathJax formatar as fórmulas
+      this.renderizarMatematica();
+    },
+    renderizarMatematica() {
+      // Função centralizada para chamar o MathJax com segurança
       this.$nextTick(() => {
         if (window.MathJax && window.MathJax.typeset) {
           window.MathJax.typeset();
@@ -33,16 +33,19 @@ createApp({
       });
     }
   },
+  watch: {
+    // Sempre que a forma ou o resultado mudarem, re-renderiza o LaTeX
+    forma() { this.renderizarMatematica(); },
+    resultado(novoValor) {
+      if (novoValor !== null) {
+        this.renderizarMatematica();
+      }
+    }
+  },
   computed: {
     resultado() {
-      // Garante que o cálculo só ocorra com números válidos
       if (this.base <= 0 || this.altura <= 0) return null;
-      
-      if (this.forma === 'triangulo') {
-        return (this.base * this.altura) / 2;
-      } else {
-        return this.base * this.altura;
-      }
+      return this.forma === 'triangulo' ? (this.base * this.altura) / 2 : this.base * this.altura;
     }
   }
 }).mount('#app');
