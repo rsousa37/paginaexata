@@ -12,31 +12,28 @@ createApp({
       ],
       base: 0,
       altura: 0,
-      forma: 'retangulo'
+      forma: 'retangulo', 
       darkMode: false
     };
   },
   mounted() {
     this.novaCuriosidade();
   },
-  methods: {
+  methods: { 
     toggleDarkMode() {
       this.darkMode = !this.darkMode;
-      // Aplicamos ou removemos a classe diretamente no body do HTML
       if (this.darkMode) {
         document.body.classList.add('dark-mode');
       } else {
         document.body.classList.remove('dark-mode');
       }
     },
-  methods: {
     novaCuriosidade() {
       const indice = Math.floor(Math.random() * this.curiosidades.length);
       this.curiosidadeAtual = this.curiosidades[indice];
       this.renderizarMatematica();
     },
     renderizarMatematica() {
-      // Função centralizada para chamar o MathJax com segurança
       this.$nextTick(() => {
         if (window.MathJax && window.MathJax.typeset) {
           window.MathJax.typeset();
@@ -45,7 +42,6 @@ createApp({
     }
   },
   watch: {
-    // Sempre que a forma ou o resultado mudarem, re-renderiza o LaTeX
     forma() { this.renderizarMatematica(); },
     resultado(novoValor) {
       if (novoValor !== null) {
