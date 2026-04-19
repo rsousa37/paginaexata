@@ -13,11 +13,22 @@ createApp({
       base: 0,
       altura: 0,
       forma: 'retangulo'
+      darkMode: false
     };
   },
   mounted() {
     this.novaCuriosidade();
   },
+  methods: {
+    toggleDarkMode() {
+      this.darkMode = !this.darkMode;
+      // Aplicamos ou removemos a classe diretamente no body do HTML
+      if (this.darkMode) {
+        document.body.classList.add('dark-mode');
+      } else {
+        document.body.classList.remove('dark-mode');
+      }
+    },
   methods: {
     novaCuriosidade() {
       const indice = Math.floor(Math.random() * this.curiosidades.length);

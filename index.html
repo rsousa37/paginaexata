@@ -34,6 +34,11 @@
             <ul>
             <li><a href="#inicio">Início</a></li>
             <li><a href="#contato">Contato</a></li>
+            <li>
+                <button @click="toggleDarkMode" class="btn-dark-mode">
+                    {{ darkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro' }}
+                </button>
+            </li>
             </ul>
         </nav>
     </header>
