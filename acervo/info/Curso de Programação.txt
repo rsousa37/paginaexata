@@ -1,0 +1,9 @@
+<center><font size="+2">Curso de Programa&ccedil;&atilde;o</font><br></center>
+<p>
+Se voc&ecirc; se interessa em aprender a programar, envie um e-mail com  seu nome, grau de escolaridade(fator muito importante, por isso não minta) e cidade em que reside. A turma ser&aacute; composta por 10 alunos, para garantir um acompanhamento de qualidade.
+O programa do curso estar&aacute; dispon&iacute;vel em breve.
+As linguagens a serem abordadas ser&atilde;o o QBasic e o Pascal, uma vez que o curso dirige-se ao aprendizado da programa&ccedil;&atilde;o e não a decorar como se usa ferramentas e comandos para programa&ccedil;&atilde;o comercial.
+<p><font color="yellow">Obs.:</font> É de fundamental importância que o interessado seja autodidata pois não trata-se de um curso interativo, mas orientado a distância.
+<p>
+<center><a href="mailto:pmfi@ieg.com.br?subject=Inscrição no curso de programa&ccedil;&atilde;o.&body=SOLICITA&Ccedil;&Atilde;O: Solicito minha inscri&ccedil;&atilde;o no curso de programação. Tenho conhecimento que não trata-se de um curso interativo e que esta solicita&ccedil;&atilde;o n&atilde;o implica em inscri&ccedil;&atilde;o no curso, mas em uma inscri&ccedil;&atilde;o na sele&ccedil;&atilde;o.">Inscreva-se!</a><br>
+<font size="+1">pmfi@ieg.com.br</center>

@@ -1,0 +1,104 @@
+<HTML>
+<HEAD>
+<TITLE>Estudando o Qbasic - Aula 2</TITLE>
+</HEAD>
+<BODY LINK="#0000ff">
+<DIV ALIGN="JUSTIFY">
+<B>
+<P ALIGN="CENTER">Estudando o Qbasic
+<P>
+<P ALIGN="CENTER">Aula 2
+</B>
+<P>
+<P>Na aula anterior aprendemos como exibir mensagens no v&iacute;deo, esta opera&ccedil;&atilde;o &eacute; um exemplo de sa&iacute;da de dados, agora iremos aprender como introduzir dados  via teclado. Ensinar a etapa de sa&iacute;da antes da etapa de entrada pode parecer uma inconsist&ecirc;ncia, por&eacute;m, introduzir dados sem o uso de recursos visuais &eacute; sempre um fator de complica&ccedil;&atilde;o.
+<P>
+<P>&nbsp;
+<OL>
+<P><B><LI>O comando INPUT</LI></B><P >
+<P>O comando INPUT, <I>significa "introduzir"</I>, &eacute; utilizado  para a introdu&ccedil;&atilde;o de dados via teclado.
+<P>
+<P>O processo de entrada de dados &eacute; um pouco mais complicado que o processo de sa&iacute;da, pois temos que definir o tipo de dado a ser introduzido: caracteres em geral, somente n&uacute;meros inteiros, n&uacute;meros com precis&atilde;o simples etc. e ainda teremos que informar como esse dado ser&aacute; identificado na mem&oacute;ria do computador. 
+<P >
+<B><P>Dados tipo <I>String</I>:</B>
+<P>
+<P>S&atilde;o os dados alfanum&eacute;ricos; podem envolver letras, n&uacute;meros e alguns s&iacute;mbolos. Por exemplo: nomes de pessoas, endere&ccedil;os, n&uacute;mero de placas de ve&iacute;culos.
+<P>
+<B><P>Dados num&eacute;ricos de Precis&atilde;o Simples:</B>
+<P>
+<P>S&atilde;o n&uacute;meros em ponto flutuante que podem possuir at&eacute; 8 casas decimais. Eles alcan&ccedil;am boa faixa dos n&uacute;meros do cotidiano.
+<P>
+<OL TYPE="I">
+<B><P><LI>As vari&aacute;veis de mem&oacute;ria</LI></B>
+<P>
+<P>Uma abordagem melhor deste assunto pode ser encontrado no curso de l&oacute;gica de programa&ccedil;&atilde;o, em <A HREF="http://www.pmfi.hpg.com.br/">www.pmfi.hpg.com.br</A> . 
+<P>De maneira pr&aacute;tica, voc&ecirc; ir&aacute; criar "r&oacute;tulos" para que o computador identifique em que local da mem&oacute;ria RAM foi armazenada a informa&ccedil;&atilde;o introduzida.
+<P>Para nosso uso inicial voc&ecirc; dever&aacute; saber o seguinte:
+<P>
+<B><P>Vari&aacute;veis Alfanum&eacute;ricas(String):</B> S&atilde;o identificadas pelo s&iacute;mbolo $, que dever&aacute; aparecer obrigatoriamente no final do nome da vari&aacute;vel. Exemplos: nome$, rua$, placa$.
+<B><P>
+<P>Vari&aacute;veis de Precis&atilde;o Simples: </B>Poder&aacute; possuir o identificador "!" no seu final, por&eacute;m n&atilde;o &eacute; obrigat&oacute;rio, pois o Qbasic assume automaticamente este formato. Exemplos: num, cod, n1  ou alternativamente  num!, cod!, n1! .
+<P>
+<U><P>Em qualquer caso, o nome de uma vari&aacute;vel deve come&ccedil;ar obrigatoriamente com uma letra.</U>
+<P>
+<B><P><LI>Introduzindo <I>Strings</I>:</LI></B>
+<P>
+<P>Vamos "ensinar" o computador a solicitar o nome de uma pessoa. Este processo constitui-se de duas etapas: A sa&iacute;da de dados(mensagem a ser mostrada ao usu&aacute;rio) e a entrada de dados(dado solicitado ao usu&aacute;rio).
+<P>
+<P>Primeiramente o computador dever&aacute; mostrar no v&iacute;deo uma mensagem do tipo: "Digite o nome da pessoa: ", j&aacute; vimos que isto pode ser feito com o uso do comando PRINT:
+<P>
+<B><P ALIGN="CENTER">Print "Digite o nome da pessoa:  "</B>
+<P>
+<P>Agora o computador dever&aacute; aguardar a entrada da informa&ccedil;&atilde;o; isto &eacute; feito com o uso do comando INPUT:
+<P>
+<B><P ALIGN="CENTER">Input nome$</B>
+<P>
+<I><P><B>Nota:</B> o s&iacute;mbolo $, indica que a vari&aacute;vel &eacute; do tipo alfanum&eacute;rico(String).</I>
+<P ALIGN="CENTER"><IMG SRC="Image43.gif" WIDTH=200 HEIGHT=94>
+<P>
+<P>Tecle <B><I>shift + F5</B></I> para executar o programa. Surgir&aacute; a tela abaixo.
+<P ALIGN="CENTER"><IMG SRC="Image44.gif" WIDTH=165 HEIGHT=68>
+<P>
+<P>A interroga&ccedil;&atilde;o abaixo da mensagem  indica que o comando INPUT est&aacute; esperando que algo seja digitado. Digite um nome e tecle ENTER.
+<P>
+<P>A execu&ccedil;&atilde;o ser&aacute; encerrada. Pode parecer que nada aconteceu, mas a informa&ccedil;&atilde;o digitada foi armazenada na mem&oacute;ria RAM com o r&oacute;tulo <I>nome$</I>. Verifiquemos isto.
+<P>
+<P>Ap&oacute;s o comando: Input nome$ , introduza a seguinte linha de comando:
+<P>
+<B><P ALIGN="CENTER">Print nome$</B>
+<P ALIGN="CENTER"><IMG SRC="Image45.gif" WIDTH=168 HEIGHT=75>
+<P>
+<P>Tecle <B>Shift + F5</B>, para executar  o programa, e repita o procedimento anterior. Desta vez o resultado ser&aacute;:
+<P ALIGN="CENTER"><IMG SRC="Image46.gif" WIDTH=132 HEIGHT=42>
+<P>
+<P>Observe que a linha: Print nome$ &eacute; respons&aacute;vel pela exibi&ccedil;&atilde;o do dado digitado.
+<P>
+<P>Conclus&atilde;o: toda vez que voc&ecirc; precisar utilizar o dado introduzido, basta referir-se ao &agrave; vari&aacute;vel utilizada para ele, <B><I>por isto dados diferentes dever&atilde;o ter nomes diferentes para as suas vari&aacute;veis, caso contr&aacute;rio a informa&ccedil;&atilde;o mais recente ir&aacute; substituir a mais antiga.</I></B>
+<P>
+<P><B><LI>Introduzindo N&uacute;meros(de simples precis&atilde;o):</LI></B>
+</OL>
+</OL>
+<P><DIR>
+<DIR>
+<P>O processo &eacute; similar, a diferen&ccedil;a esta no nome da vari&aacute;veis, como iremos introduzir n&uacute;meros ent&atilde;o as vari&aacute;veis ser&atilde;o num&eacute;ricas, logo n&atilde;o poderemos utilizar o s&iacute;mbolo $ no seu final. Por enquanto nos limitaremos as vari&aacute;veis de precis&atilde;o simples o que dispensar&aacute; a identifica&ccedil;&atilde;o pelo s&iacute;mbolo "!".
+<P>
+<P>Programa exemplo para a introdu&ccedil;&atilde;o de n&uacute;meros:
+<P>
+<DIR>
+<DIR>
+<B><P>Cls
+<BR>Print "Entre um numero "
+<BR>Input num1
+<BR>Print  "Entre outro numero"
+<BR>Input num2
+<BR>Print "Os numeros introduzidos foram:"
+<BR>Print num1
+<BR>Print num2
+<BR>end</B><P>
+</DIR>
+</DIR>
+<P>Digite o programa acima e o execute. Acompanhe sua execu&ccedil;&atilde;o pela listagem acima. Voc&ecirc; observar&aacute; que para cada INPUT haver&aacute; uma espera at&eacute; que o dado solicitado seja introduzido e em seguida teclado o ENTER. Os valores introduzidos s&atilde;o armazenados nas vari&aacute;veis <I>num1</I> e <I>num2</I> e exibidos ao final com o uso do comando PRINT, observe ainda o uso da instru&ccedil;&atilde;o END indicando o final do programa, este &eacute; um bom h&aacute;bito de programa&ccedil;&atilde;o, pois haver&atilde;o situa&ccedil;&otilde;es que a sua aus&ecirc;ncia poder&aacute; interferir no funcionamento correto do programa.
+<P ALIGN="CENTER"><IMG SRC="Image47.gif" WIDTH=506 HEIGHT=165></DIR>
+</DIR>
+</DIV>
+</BODY>
+</HTML>

@@ -1,0 +1,147 @@
+<HTML>
+<HEAD>
+<TITLE>Estudando o Qbasic </TITLE>
+</HEAD>
+<BODY>
+<DIV ALIGN="JUSTIFY">
+<B>
+<P ALIGN="CENTER">Estudando o Qbasic 
+<P ALIGN="CENTER">
+<P ALIGN="CENTER">Aula 3 
+</B>
+<OL>
+<B><LI>Atribuindo Valores Atrav&eacute;s do Comando LET.</LI>
+<DIR></B>
+<P>Na aula anterior aprendemos a atribuir dados digitados pelo usu&aacute;rio a uma vari&aacute;vel, agora veremos como atribuir dados a uma vari&aacute;vel dentro do pr&oacute;prio programa, para isto utilizamos o comando <B>LET</B>, cuja tradu&ccedil;&atilde;o &eacute; "<I>deixar</I>".
+<P>Aproveitemos o exemplo da li&ccedil;&atilde;o, onde o usu&aacute;ria introduzia dois valores e esses valores em seguida eram exibidos  no v&iacute;deo. Agora o usu&aacute;rio ir&aacute; introduzir os dois valores, por&eacute;m a soma dos dois ser&aacute; exibida no v&iacute;deo e al&eacute;m disto essa soma ficar&aacute; armazenada na mem&oacute;ria.
+<P>
+<P>As linha modificados aparecem em vermelho.
+<PRE>
+<B>
+	Cls
+	Print "Entre um numero "
+	Input num1
+	Print "Entre outro numero"
+	Input num2
+	<FONT COLOR="#ff0000">Let soma = num1 + num2
+	Print "A soma dos numeros introduzidos &eacute;:"
+	Print soma </FONT>
+	End
+</B>
+</PRE>
+<P>Executando o programa teremos:
+<P ALIGN="CENTER"><IMG SRC="Image72.gif" WIDTH=296 HEIGHT=140>
+<P>
+<P>Explica&ccedil;&atilde;o:
+<P>
+<UL>
+<P><LI>Como j&aacute; sabemos, os comandos INPUT atribuem &agrave;s vari&aacute;veis <B>num1</B> e <B>num2</B> ou valores que o usu&aacute;rio digitar.
+<P><LI>comando <B>LET</B> atribui &agrave; vari&aacute;vel <B>soma </B> a soma do conte&uacute;do de  <B>num1</B> com o conte&uacute;do de <B>num2</B>, <U>observe que esta soma aparece a direita da igualdade.</U>
+<P><LI>Finalmente o comando PRINT exibe o conte&uacute;do de <B>soma </B>no v&iacute;deo.
+</UL>
+<P>
+<I>
+<B>
+<P>Sintaxe do Comando LET:
+</B>
+<P>
+<DIR>
+<B><P>LET <I>vari&aacute;vel</I> = <I>conte&uacute;do</I></B>
+</I>
+<P>
+<P>Observe que o conte&uacute;do a ser atribu&iacute;do &agrave; vari&aacute;vel deve aparecer sempre do lado direito da igualdade.
+<P>"<B><I>conte&uacute;do</B></I>" pode ser expresso por um valor constante(Por exemplo 2, 4, etc), ou uma express&atilde;o(como no exemplo acima).
+<P>Durante nosso curso veremos v&aacute;rios exemplos.
+<P>
+</DIR>
+Podemos observar que a opera&ccedil;&atilde;o realizada pelo comando LET &eacute; efetuada internamente e o usu&aacute;rio pode observar o resultado da opera&ccedil;&atilde;o utilizando o comando PRINT para exibi-lo no v&iacute;deo.
+<P>
+<P><B><P>Observa&ccedil;&otilde;es:</B>
+<P>
+<UL>
+<P><LI>A vari&aacute;vel que recebe o <B><I>conte&uacute;do</B></I>(lado direito da igualdade) deve ser compat&iacute;vel com o tipo do conte&uacute;do, por exemplo, uma vari&aacute;vel num&eacute;rica n&atilde;o pode receber uma cadeia de caracteres(string). Exemplo: LET B="Robson"     <I>observe que B n&atilde;o &eacute; uma vari&aacute;vel tipo "string" pois n&atilde;o foi identificada com o $, mas receber&aacute; a cadeia de caracteres(string) Robson; este procedimento levar&aacute; a uma mensagem de ERRO.</I>
+<P><LI><U>O comando LET &eacute; opcional</U>, ou seja, sua escrita poder&aacute; ser omitida sem que ocorra um erro no programa.
+</UL>
+<DIR>
+<P>No nosso exemplo poderemos trocar a linha:
+<B>
+<P ALIGN="CENTER">Let soma = num1 + num2
+<P ALIGN="CENTER">Por
+<P ALIGN="CENTER">soma = num1 + num2
+<P>
+</DIR>
+</B>
+</DIR>
+<P><B><LI>Concatena&ccedil;&atilde;o ou Jun&ccedil;&atilde;o de Uma Cadeia de Caracteres</B>
+</OL>
+<P>
+<DIR>
+<P>Quando tentamos somar duas vari&aacute;veis do tipo alfanum&eacute;rico(string) n&atilde;o teremos a soma aritm&eacute;tica(isto &eacute; &oacute;bvio pois n&atilde;o estamos lidando com n&uacute;meros), mas teremos uma concatena&ccedil;&atilde;o(jun&ccedil;&atilde;o) dos dados.
+<P>
+<P>Usemos uma adapta&ccedil;&atilde;o do programa anterior para entendermos bem:
+<PRE>
+<B>
+	Cls
+	Print "Entre uma palavra"
+	Input num1$
+	Print "Entre outra palavra"
+	Input num2$
+	<FONT COLOR="#ff0000">Soma$ = num1$ + num2$
+	Print "O resultado da soma &eacute;:"
+	Print soma$ </FONT>
+	end
+</B>
+</PRE>
+<P>
+<P>Tecle <B><I>Shift + F5</B></I> para executar o programa, o resultado ser&aacute;:
+<P ALIGN="CENTER"><IMG SRC="Image73.gif" WIDTH=289 HEIGHT=134>
+<P>
+<P>Observe as seguintes modifica&ccedil;&otilde;es no c&oacute;digo anterior:
+<P>
+<UL>
+<P><LI>Todas as vari&aacute;veis utilizadas pelo INPUT foram transformadas em vari&aacute;veis alfanum&eacute;ricas.</LI>
+<P><LI>A vari&aacute;vel <B>soma</B> passou a ser <B>soma$</B> pois ela guardar&aacute; o resultado da opera&ccedil;&atilde;o de duas vari&aacute;veis alfanum&eacute;ricas, ou seja,  ela tem que ser alfanum&eacute;rica tamb&eacute;m.</LI></UL>
+<P>
+<P>Como experi&ecirc;ncia final, execute o programa acima e entre dois n&uacute;mero. Observe o resultado.
+<P>
+<P>Os sinais utilizados em opera&ccedil;&otilde;es aritm&eacute;ticas s&atilde;o:
+<P>
+<P ALIGN="CENTER"><CENTER><TABLE BORDER CELLSPACING=1 CELLPADDING=4 WIDTH=255>
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P ALIGN="CENTER">+
+<TD WIDTH="81%" VALIGN="TOP">
+<P ALIGN="CENTER">Soma
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P ALIGN="CENTER">-
+<TD WIDTH="81%" VALIGN="TOP">
+<P ALIGN="CENTER">Subtra&ccedil;&atilde;o
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P ALIGN="CENTER">*
+<TD WIDTH="81%" VALIGN="TOP">
+<P ALIGN="CENTER">Multiplica&ccedil;&atilde;o
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P ALIGN="CENTER">/
+<TD WIDTH="81%" VALIGN="TOP">
+<P ALIGN="CENTER">Divis&atilde;o
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P ALIGN="CENTER">\
+<TD WIDTH="81%" VALIGN="TOP">
+<P ALIGN="CENTER">Divis&atilde;o inteira
+<TR><TD WIDTH="19%" VALIGN="TOP">
+<P ALIGN="CENTER">^
+<TD WIDTH="81%" VALIGN="TOP">
+<P ALIGN="CENTER">potencia&ccedil;&atilde;o
+</TABLE>
+</CENTER>
+<P><DIR>
+<P>O operador "\" retornar&aacute; o quociente de uma divis&atilde;o no universo dos inteiros, por exemplo, 3\2 retornar&aacute; 1.
+</DIR>
+<P>
+<P>Experimente trocar o sinal de somar pelos operadores acima no primeiro programa desta aula, e observe o funcionamento de cada um deles.
+<P><I><B>Observa&ccedil;&atilde;o:</B>
+<P>O conte&uacute;do a ser atribu&iacute;do a uma vari&aacute;vel alfanum&eacute;rica deve ser colocado entre aspas.</I>
+<P>Exemplo:
+<PRE> A$="Mar Grande"		-->   <I>A$ conter&aacute;: Mar Grande</I></PRE>
+</DIV>
+</BODY>
+</HTML>
