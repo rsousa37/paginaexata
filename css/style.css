@@ -26,6 +26,7 @@ header {
     justify-content: flex-start; /* Alinha tudo à esquerda */
     max-width: 800px; /* Mantém a mesma largura do main */
     margin: 0 auto; /* Centraliza o bloco do header */
+    gap: 20px; /* Cria um espaçamento fixo de 20px entre o logo e o texto */
     }
 .logo-container {
     margin-right: 20px; /* Espaço entre o logo e o título */
