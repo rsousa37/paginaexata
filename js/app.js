@@ -13,30 +13,29 @@ createApp({
       base: 0,
       altura: 0,
       forma: 'retangulo', 
-      darkMode: false
+      // Inicializa checando se a classe já foi aplicada pelo script do head
+      darkMode: localStorage.getItem('theme') === 'dark'
     };
   },
   mounted() {
     this.novaCuriosidade();
-    // Verifica se existe algo salvo no 'theme'
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    this.darkMode = true;
-    document.body.classList.add('dark-mode');
-  } else {
-    this.darkMode = false;
-    document.body.classList.remove('dark-mode');
-  }
+    // O tema já foi aplicado pelo script no HEAD, 
+    // aqui apenas garantimos que o estado do Vue está sincronizado.
+    if (this.darkMode) {
+      document.body.classList.add('dark-mode');
+    }
   },
   methods: { 
     toggleDarkMode() {
       this.darkMode = !this.darkMode;
+      const theme = this.darkMode ? 'dark' : 'light';
+      
+      localStorage.setItem('theme', theme);
+      
       if (this.darkMode) {
-      document.body.classList.add('dark-mode');
-      localStorage.setItem('theme', 'dark'); // Salva a preferência
+        document.body.classList.add('dark-mode');
       } else {
         document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light'); // Salva a preferência
       }
     },
     novaCuriosidade() {
@@ -46,8 +45,9 @@ createApp({
     },
     renderizarMatematica() {
       this.$nextTick(() => {
-        if (window.MathJax && window.MathJax.typeset) {
-          window.MathJax.typeset();
+        // Usar typesetPromise evita o travamento da UI em celulares
+        if (window.MathJax && window.MathJax.typesetPromise) {
+          window.MathJax.typesetPromise();
         }
       });
     }
