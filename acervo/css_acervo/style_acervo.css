@@ -38,3 +38,9 @@
         margin-top: 20px;
         background-color: #fff;
     }
+    li {
+        text-align: justify;
+    }
+    img{
+        border: 0;
+    }
