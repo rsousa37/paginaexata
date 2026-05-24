@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Guia Prático de Backups - Linux</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 40px; }
+        h1 { color: #1a5f7a; border-bottom: 2px solid #1a5f7a; padding-bottom: 10px; }
+        h2 { color: #222; margin-top: 30px; border-bottom: 1px solid #ddd; }
+        h3 { color: #444; }
+        code { background-color: #f4f4f4; padding: 2px 6px; font-family: monospace; border-radius: 4px; }
+        pre { background: #f4f4f4; padding: 15px; border-left: 5px solid #1a5f7a; font-family: monospace; overflow-x: auto; }
+        blockquote { margin: 20px 0; padding: 10px 20px; background: #f9f9f9; border-left: 5px solid #ccc; font-style: italic; }
+        .page-break { page-break-before: always; }
+    </style>
+</head>
+<body>
+
+    <h1>GUIA PRÁTICO DE CONFIGURAÇÃO E MANUTENÇÃO: SISTEMA DE BACKUPS NO LINUX</h1>
+    <p><strong>Foco:</strong> Déjà Dup, Gerenciamento de Permissões e Estrutura de Armazenamento EXT4</p>
+    <p><strong>Autor:</strong> Prof. Robson Silva de Sousa<br><strong>Ano:</strong> 2026</p>
+
+    <h2>1. INTRODUÇÃO E CONCEITOS ESPECÍFICOS DO EXT4</h2>
+    <p>Ao gerenciar unidades de armazenamento em ambientes Linux voltados para desenvolvimento ou backup, o sistema de arquivos adotado por padrão na maioria das distribuições modernas é o <strong>EXT4</strong>. Diferente de sistemas como o NTFS, o EXT4 impõe um controle rígido de segurança baseado em propriedades e permissões nativas do núcleo do sistema.</p>
+
+    <h3>1.1 O Diretório <code>lost+found</code></h3>
+    <p>Ao formatar uma partição em EXT4, o sistema cria automaticamente no diretório raiz da unidade uma pasta chamada <code>lost+found</code>.</p>
+    <ul>
+        <li><strong>Função Prática:</strong> Serve como um depósito de segurança para a ferramenta de checagem do sistema de arquivos (<code>fsck</code>). Se o computador sofrer um desligamento abrupto, o <code>fsck</code> analisa o disco no próximo boot e fragmentos de dados órfãos são movidos para cá.</li>
+        <li><strong>Manutenção:</strong> Esta pasta <strong>não deve ser deletada</strong>. Em um sistema operacional saudável, ela permanece completamente vazia.</li>
+    </ul>
+
+    <h2>2. GERENCIAMENTO DE PERMISSÕES E PROPRIEDADES VIA TERMINAL</h2>
+    <p>Para que qualquer aplicativo de automação funcione gravando dados em discos secundários, o usuário operacional precisa deter a propriedade do ponto de montagem.</p>
+
+    <h3>2.1 Alteração de Proprietário (<code>chown</code>)</h3>
+    <p>O utilitário <code>chown</code> (<em>Change Owner</em>) define qual conta de usuário e qual grupo gerenciam um diretório.</p>
+    <pre>sudo chown -R $USER:$USER /caminho/do/diretorio</pre>
+    <ul>
+        <li><code>sudo</code>: Executa a ação com privilégios de superusuário.</li>
+        <li><code>-R</code>: Aplica a alteração de forma <strong>recursiva</strong> (afeta a pasta, subpastas e todos os arquivos existentes).</li>
+        <li><code>$USER:$USER</code>: Variável que puxa automaticamente o nome do usuário atual e o seu grupo padrão.</li>
+    </ul>
+
+    <h3>2.2 Alteração de Modos de Acesso (<code>chmod</code>)</h3>
+    <pre>sudo chmod -R 755 /caminho/do/diretorio</pre>
+    <p>A notação octal <strong>755</strong> segmenta os privilégios em três níveis essenciais:</p>
+    <ol>
+        <li><strong>7 (Dono):</strong> Permissão total. Soma de 4 (leitura) + 2 (escrita) + 1 (execução).</li>
+        <li><strong>5 (Grupo):</strong> Permissão de leitura e execução (4 + 1).</li>
+        <li><strong>5 (Outros):</strong> Permissão de leitura e execução (4 + 1).</li>
+    </ol>
+
+    <div class="page-break"></div>
+
+    <h2>3. FLUXO DE OPERAÇÃO DO DÉJÀ DUP (DUPLICITY)</h2>
+    <h3>3.1 Backups Completos (<em>Full</em>) vs. Incrementais (<em>Inc</em>)</h3>
+    <ul>
+        <li><strong>Backup Full (<code>duplicity-full</code>):</strong> Uma cópia integral de todas as pastas selecionadas. É gerado na primeira execução ou quando há mudanças drásticas no ponto de montagem.</li>
+        <li><strong>Backup Incremental (<code>duplicity-inc</code>):</strong> Armazena exclusivamente os arquivos que sofreram modificações desde o último backup.</li>
+    </ul>
+
+    <h2>APÊNDICE: ANÁLISE DE FALHAS E SOLUÇÕES APLICADAS</h2>
+
+    <h3>FALHA 01: Permissão Negada no Destino Inicial (<code>Dados_Backup</code>)</h3>
+    <p><strong>Sintoma:</strong> O aplicativo Déjà Dup indicava falha catastrófica ao tentar gravar os primeiros volumes do tipo <code>duplicity-full</code>.</p>
+    <p><strong>Causa Raiz:</strong> A raiz de partições novas pertencem ao usuário administrativo <code>root</code> por padrão.</p>
+    <pre>sudo chown -R $USER:$USER /media/robson/Dados_Backup
+sudo chmod -R 755 /media/robson/Dados_Backup</pre>
+
+    <h3>FALHA 02: Exposição Indesejada da Pasta <code>lost+found</code></h3>
+    <p><strong>Sintoma:</strong> O diretório exibia acesso livre e visibilidade completa com o usuário padrão.</p>
+    <p><strong>Causa Raiz:</strong> A aplicação do comando recursivo (<code>-R</code>) na raiz afetou estruturas nativas do sistema.</p>
+    <pre>sudo chown root:root /media/robson/Extra_Lab/lost+found</pre>
+
+    <h3>FALHA 03: Erro de Timeout e Permissão Negada em Novo Ponto de Montagem</h3>
+    <blockquote>"Giving up after 5 attempts. Error: Error opening file... Permission denied"</blockquote>
+    <p><strong>Causa Raiz:</strong> O ponto de montagem mudou para a raiz de mídias (<code>/media/backup/</code>), redefinindo o dono para <code>root</code>.</p>
+    <pre>sudo chown -R $USER:$USER /media/backup
+sudo chmod -R 755 /media/backup</pre>
+
+</body>
+</html>
