@@ -62,7 +62,7 @@
         </section>
         <section class="card">
             <h2>{{ tituloGaleria }}</h2>
-            <p id="texto-curiosidade" class="efeito-aparecer">{{ curiosidadeAtual }}</p>
+            <p id="texto-curiosidade" class="efeito-aparecer" v-html="curiosidadeAtual"></p>
             <button class="btn" @click="novaCuriosidade">Nova Curiosidade</button>
         </section>
         <section class="card">

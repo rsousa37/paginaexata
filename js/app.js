@@ -9,6 +9,7 @@ createApp({
         "A soma dos ângulos internos de um triângulo é igual $180°$.",
         "O número \\( \\pi \\approx 3,141592653589 \\) tem infinitas casas decimais mas não é uma dízima periódica.",
         "O matemático Euclides pode ter vivido em um período de até um século antes do aceito pela maioria dos estudiosos.",
+        "O GeoGebra é uma fantástica plataforma para o ensino e aprendizagem da matemática (visite <a href='https://geogebra.org' target='_blank' rel='noopener noreferrer' style='color: #2980b9; text-decoration: underline;'>geogebra.org</a>)",
       ],
       base: 0,
       altura: 0,
