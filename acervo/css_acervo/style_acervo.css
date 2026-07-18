@@ -44,3 +44,9 @@
     img{
         border: 0;
     }
+
+    hr {
+        height: 5px; 
+        border: none; 
+        background-color: black;
+    }
