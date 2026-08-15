@@ -5,60 +5,80 @@
     --bg-color: #f4f7f6;
     /* Usando a cor do logotipo para o título */
     --logo-blue: #0056b3; 
-    }
+}
+
+/* Transição suave para a troca de cores */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
     background-color: var(--bg-color);
     color: var(--text-color);
-    }
+    transition: background-color 0.3s, color 0.3s;
+}
+
 header {
     background: white; /* Header branco para destacar o logo */
-    color: var(--text-color); /* Texto escuro */
+    color: var(--text-color);
     padding: 2rem 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    border-bottom: 3px solid var(--logo-blue); /* Linha sutil da cor do logo */
-    }
+    border-bottom: 3px solid var(--logo-blue);
+}
+
 .header-content {
-    display: flex; /* Alinhamento horizontal */
-    align-items: center; /* Centraliza verticalmente logo e texto */
-    justify-content: flex-start; /* Alinha tudo à esquerda */
-    max-width: 800px; /* Mantém a mesma largura do main */
-    margin: 0 auto; /* Centraliza o bloco do header */
-    gap: 20px; /* Cria um espaçamento fixo de 20px entre o logo e o texto */
-    }
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
 .logo-container {
-    margin-right: 20px; /* Espaço entre o logo e o título */
-    }
+    margin-right: 0; /* Espaçamento controlado pelo gap do container */
+}
+
 .site-logo {
-    max-width: 80px; /* Tamanho proporcional do logo */
+    max-width: 80px;
     height: auto;
     display: block;
-    }
+}
+
 .title-container h1 { 
     margin: 0; 
-    color: var(--logo-blue); /* Cor azul do logo no título */
+    color: var(--logo-blue);
     font-size: 2.5rem;
-    }
+}
+
 .title-container p { 
     margin: 0; 
-    color: #2c3e50; /* Subtítulo cinza sutil */
+    color: #2c3e50;
     font-size: 1.1rem;
-    }
+}
+
 main {
     max-width: 800px;
     margin: 2rem auto;
     padding: 0 1rem;
-    }
+}
+
+/* Estrutura de Cards */
 .card {
     background: white;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     margin-top: 2rem;
-    }
+}
+
+/* Remove a margem do primeiro card para não criar espaço duplo com a main */
+main .card:first-child {
+    margin-top: 0;
+}
+
 h1 { margin-top: 0; }
+
+/* Botões */
 .btn {
     display: inline-block;
     background: var(--accent-color);
@@ -66,20 +86,33 @@ h1 { margin-top: 0; }
     padding: 0.8rem 1.5rem;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
     transition: background 0.3s;
-    }
+}
+
 .btn:hover {
     background: #2980b9;
-    }
+}
+
+/* Espaçamento automático entre botões consecutivos */
+.btn + .btn {
+    margin-left: 1rem;
+}
+
 footer {
     text-align: center;
     padding: 2rem;
     font-size: 0.9rem;
     color: #7f8c8d;
-    }
-/* Estilo do Menu de Navegação */
+}
+
+/* Estilo do Menu de Navegação Responsivo */
 .menu-principal {
     margin-top: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .menu-principal ul {
@@ -87,28 +120,54 @@ footer {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap; /* Garante que os itens dobrem de linha em telas pequenas */
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    gap: 0.75rem 1rem;
+}
+
+.menu-principal li {
+    margin: 0;
 }
 
 .menu-principal a {
     color: var(--logo-blue);
     text-decoration: none;
     font-weight: bold;
-    padding: 5px 15px;
+    padding: 6px 14px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: background 0.3s;
+    background: rgba(0, 86, 179, 0.08);
+    transition: background 0.3s, color 0.3s;
+    display: inline-block;
 }
 
 .menu-principal a:hover {
     background: var(--accent-color);
+    color: white;
+}
+
+/* Estilo para o botão de Dark Mode no Menu */
+.btn-dark-mode {
+    background: transparent;
+    border: 1px solid var(--logo-blue);
+    color: var(--logo-blue);
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-dark-mode:hover {
+    background: var(--logo-blue);
+    color: white;
 }
 
 /* Efeito de rolagem suave ao clicar nos links */
 html {
     scroll-behavior: smooth;
 }
+
 /* Estilo da Seção de Contato */
 .contato-container {
     display: flex;
@@ -116,6 +175,7 @@ html {
     gap: 15px;
     margin-top: 1rem;
 }
+
 .link-contato {
     text-decoration: none;
     color: var(--primary-color);
@@ -125,30 +185,63 @@ html {
     border-left: 5px solid var(--accent-color);
     transition: background 0.3s, transform 0.2s;
 }
+
 .link-contato:hover {
     background: #e1e8ef;
     transform: translateX(5px);
 }
+
 .link-contato strong {
     color: var(--accent-color);
 }
-/* Variáveis para o Modo Escuro */
+
+/* Media Query para Ajustes Mobile */
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .title-container h1 {
+        font-size: 2rem;
+    }
+
+    .btn + .btn {
+        margin-left: 0;
+        margin-top: 0.5rem; /* Em telas muito estreitas, empilha os botões */
+    }
+}
+
+/* Variáveis e Regras para o Modo Escuro */
 body.dark-mode {
     --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
-    --primary-color: #121212;
+    --primary-color: #f4f7f6;
     --accent-color: #3498db;
+    --logo-blue: #4da3ff;
 }
+
+body.dark-mode header {
+    background: #252525;
+}
+
 body.dark-mode .card {
     background: #2d2d2d;
     color: #e0e0e0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
+
 body.dark-mode .link-contato {
     background: #3d3d3d;
     color: #e0e0e0;
 }
-/* Transição suave para a troca de cores */
-body {
-    transition: background-color 0.3s, color 0.3s;
+
+body.dark-mode .menu-principal a {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-dark-mode {
+    border-color: var(--logo-blue);
+    color: var(--logo-blue);
 }
