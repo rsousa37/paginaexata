@@ -148,19 +148,20 @@ footer {
 
 /* Estilo para o botão de Dark Mode no Menu */
 .btn-dark-mode {
-    background: transparent;
+    background: rgba(0, 86, 179, 0.08);
     border: 1px solid var(--logo-blue);
     color: var(--logo-blue);
     font-weight: bold;
-    padding: 5px 12px;
+    padding: 6px 14px;
     border-radius: 20px;
     cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .btn-dark-mode:hover {
-    background: var(--logo-blue);
+    background: var(--accent-color);
     color: white;
+    border-color: var(--accent-color);
 }
 
 /* Efeito de rolagem suave ao clicar nos links */
@@ -241,7 +242,15 @@ body.dark-mode .menu-principal a {
     background: rgba(255, 255, 255, 0.1);
 }
 
+/* Regras de ajuste para o MODO ESCURO */
 body.dark-mode .btn-dark-mode {
-    border-color: var(--logo-blue);
-    color: var(--logo-blue);
+    background: #333333;           /* Fundo escuro para destacar do header */
+    border-color: #555555;           /* Borda sutil */
+    color: #ffffff;                  /* Texto e emoji em BRANCO com contraste total */
+}
+
+body.dark-mode .btn-dark-mode:hover {
+    background: var(--accent-color); /* Destaque azul ao passar o mouse */
+    color: #ffffff;
+    border-color: var(--accent-color);
 }
