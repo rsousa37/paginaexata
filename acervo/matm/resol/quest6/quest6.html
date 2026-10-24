@@ -2,8 +2,67 @@
 <HEAD>
 <TITLE>Quest&atilde;o 6 - Ensino m&eacute;dio</TITLE>
 <link rel="stylesheet" href="../../../css_acervo/style_acervo.css">
+<STYLE>
+#frame-imagem {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+  text-align: center;
+}
+#frame-imagem .caixa {
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
+  max-height: 90%;
+  margin-top: 3%;
+  padding: 10px;
+  background: #fff;
+  border: 2px solid #333;
+}
+#frame-imagem .caixa img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+}
+#frame-imagem .fechar {
+  position: absolute;
+  top: -14px; right: -14px;
+  width: 28px; height: 28px;
+  line-height: 26px;
+  text-align: center;
+  background: #333;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+</STYLE>
+<SCRIPT type="text/javascript">
+function abrirImagem(url) {
+  document.getElementById("img-frame").src = url;
+  document.getElementById("frame-imagem").style.display = "block";
+  return false;
+}
+function fecharImagem() {
+  document.getElementById("frame-imagem").style.display = "none";
+  document.getElementById("img-frame").src = "";
+}
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") fecharImagem();
+});
+</SCRIPT>
 </HEAD>
 <BODY>
+<DIV id="frame-imagem" onclick="fecharImagem()">
+  <DIV class="caixa" onclick="event.stopPropagation()">
+    <SPAN class="fechar" onclick="fecharImagem()">X</SPAN>
+    <IMG id="img-frame" src="" alt="Teorema da Bissetriz Interna de um tri&acirc;ngulo">
+  </DIV>
+</DIV>
 <DIV class="conteudo-limite">
 <h2>Quest&atilde;o 6 - N&iacute;vel segundo grau</h2>
 <hr>
@@ -17,7 +76,7 @@
 <I><P>Solu&ccedil;&atilde;o:</I></P>
 <P>A figura abaixo ilustra toda a situa&ccedil;&atilde;o apresentada pela quest&atilde;o.
 <P><CENTER><IMG SRC="Image53.gif" WIDTH=226 HEIGHT=160></IMG></CENTER></P>
-<P>Pelo <A href="teobisint.jpg" target="blank">Teorema da Bissetriz Interna de um tri&acirc;ngulo</A>, teremos a seguinte propor&ccedil;&atilde;o:</P>
+<P>Pelo <A href="teobisint.jpg" onclick="return abrirImagem(this.href);">Teorema da Bissetriz Interna de um tri&acirc;ngulo</A>, teremos a seguinte propor&ccedil;&atilde;o:</P>
 <P><CENTER><IMG SRC="Image54.gif" WIDTH=72 HEIGHT=45></IMG></CENTER></P>
 <P>Mas: <IMG SRC="Image55.gif" ALIGN="MIDDLE" WIDTH=113 HEIGHT=22></IMG>, <IMG SRC="Image50.gif" ALIGN="MIDDLE" WIDTH=52 HEIGHT=22></IMG>, <IMG SRC="Image51.gif" ALIGN="MIDDLE" WIDTH=52 HEIGHT=22></IMG></P>
 <P>Substituindo estas igualdades na propor&ccedil;&atilde;o acima teremos: <IMG SRC="Image56.gif" ALIGN="MIDDLE" WIDTH=60 HEIGHT=42></IMG></P>
@@ -36,8 +95,9 @@
 <P> Temos em <B>V</B> uma equa&ccedil;&atilde;o do segundo grau na inc&oacute;gnita <B><I>d</I></B>. Resolvendo esta equa&ccedil;&atilde;o:</P>
 <P><CENTER><IMG SRC="Image68.gif" WIDTH=188 HEIGHT=74></IMG></CENTER></P>
 <P><CENTER><IMG SRC="Image69.gif" WIDTH=365 HEIGHT=112></IMG></CENTER></P>
-<P>Como <B><I>b</I></B> &eacute; um valor positivo(comprimento de um segmento) ent&atilde;o <B><I>-b</I></B> &eacute; um valor negativo, isto implica em <B><I>d</I></B> ser um valor negativo na segunda solu&ccedil;&atilde;o acima, como <B><I>d</I></B>&eacute; um comprimento ele precisa ser positivo, portanto <IMG SRC="Image70.gif" ALIGN="MIDDLE" WIDTH=48 HEIGHT=18></IMG> n&atilde;o serve como resposta.</P>
-<P>A &uacute;nica resposta poss&iacute;vel &eacute;: <IMG SRC="Image71.gif" ALIGN="MIDDLE" WIDTH=49 HEIGHT=41></IMG></P>
+<P>Descartando a solução negativa para <B><I>d</I></B>, pois ele representa um comprimento, temos que:</P>
+<P><CENTER><IMG SRC="Image71.gif" ALIGN="MIDDLE" WIDTH=49 HEIGHT=41></IMG></CENTER></P>
+<BR>
 <P><A HREF="../../matmedio.html#quest6"><IMG SRC="../../mis85.gif" BORDER=0 WIDTH=32 HEIGHT=32></IMG></A> Voltar &agrave; Lista de Quest&otilde;es</P>
 </DIV>
 </BODY>
